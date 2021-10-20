@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 
-import InputFields from './components/InputFields'
+import InputField from './components/InputField'
 
 const App = () => {
 
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="App">
       <span className="header">YOU HAVE SOME WORK BOY</span>
-      <InputFields todo={todo} setTodo={setTodo}/>
+      <InputField todo={todo} setTodo={setTodo}/>
     </div>
   );
 }
