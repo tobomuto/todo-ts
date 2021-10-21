@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 
 import InputField from './components/InputField'
+import TodoList from "./components/TodoList";
 import { Todo } from './model';
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           todo: todo,
           isDone: false
         }
-      ])
+      ]);
       setTodo("")
     }
   };
@@ -27,6 +28,7 @@ const App = () => {
     <div className="App">
       <span className="header">YOU HAVE SOME WORK BOY</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }
