@@ -4,12 +4,13 @@ import './styles/InputField.scss';
 
 interface Props {
     todo: string,
-    setTodo: React.Dispatch<React.SetStateAction<string>>
+    setTodo: React.Dispatch<React.SetStateAction<string>>,
+    handleAdd: (e: React.FormEvent)=>void
 }
-const InputFields = ({ todo, setTodo }:Props) => {
+const InputFields = ({ todo, setTodo, handleAdd }:Props) => {
 
     return (
-        <form className="input-field">
+        <form className="input-field" onSubmit={handleAdd}>
             <input 
                 className="input-field__input" 
                 type="text" 
