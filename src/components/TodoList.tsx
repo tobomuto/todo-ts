@@ -1,6 +1,7 @@
 import React from 'react'
-
 import './styles/TodoList.scss';
+
+import TodoElement from './TodoElement';
 
 import { Todo } from '../model';
 
@@ -13,7 +14,12 @@ const TodoList: React.FC<Props> = ({todos, setTodos}) => {
     return (
         <div className="todo-list">
             {todos.map((todo) => (
-                <li>{todo.todo}</li>
+                <TodoElement 
+                    key={todo.id} 
+                    todo={todo}
+                    todos={todos}
+                    setTodos={setTodos}
+                />
             ))}
         </div>
     )
