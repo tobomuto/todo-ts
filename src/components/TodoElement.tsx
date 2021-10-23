@@ -12,11 +12,20 @@ interface Props {
 }
 
 const TodoElement = ({todo, todos, setTodos}: Props) => {
+    const handleDone = (id:number) => {
+        setTodos(todos.map(todo => todo.id===id ? { ...todo, isDone: !todo.isDone } : todo))
+    }
     return (
         <form className="todo-element">
-            <span className="todo-element__text">{todo.todo}</span>
+            {
+                todo.isDone ? (
+                    <s className="todo-element__text">{todo.todo}</s>
+                ) : (
+                    <span className="todo-element__text">{todo.todo}</span>
+                )
+            }
             <div className="todo-element__icons">
-                <span className="todo-element__icon"><RiCheckFill/></span>
+                <span className="todo-element__icon" onClick={() => handleDone(todo.id)}><RiCheckFill/></span>
                 <span className="todo-element__icon"><RiEdit2Fill /></span>
                 <span className="todo-element__icon"><RiDeleteBin7Fill /></span>
             </div>
